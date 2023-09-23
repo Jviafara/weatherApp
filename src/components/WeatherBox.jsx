@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// import { WiDayFog } from 'react-icons/wi';
 
 const WeatherBox = ({ data, day, weekDays }) => {
     const [list, setList] = useState([]);
     const [daysIndexes, setDaysIndexes] = useState();
     const [days, setDays] = useState([]);
-    const [iconBackground, setIconBackground] = useState('');
 
     const getDayIndices = (data) => {
         let dayIndices = [];
@@ -32,11 +30,6 @@ const WeatherBox = ({ data, day, weekDays }) => {
         if (data?.list) array = getDayIndices(data);
         setDaysIndexes(array);
         setList(data?.list);
-        setIconBackground(
-            data.list?.[0]?.weather?.[0].icon.includes('n')
-                ? 'bg-gray-600'
-                : 'bg-cyan-200'
-        );
     }, [data]);
 
     useEffect(() => {
@@ -61,6 +54,8 @@ const WeatherBox = ({ data, day, weekDays }) => {
             });
         }
         setDays(daysArray);
+
+        // eslint-disable-next-line
     }, [daysIndexes]);
 
     return (
