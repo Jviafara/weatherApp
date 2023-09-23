@@ -9,7 +9,7 @@ const CityInput = ({ setData, data, setList }) => {
     const makeApiCall = async (city) => {
         try {
             const response = await axios.get(
-                `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=6557810176c36fac5f0db536711a6c52`
+                `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=59a2634a4c80e4f00583765f4401b432`
             );
             setData(response.data);
             setList(response.data.list);
